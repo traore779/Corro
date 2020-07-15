@@ -1,0 +1,12 @@
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <h3>Solution de l'exercice</h3>
+
+    <div class="solution">
+        {{ exercice.solution | raw }}
+    </div>
+
+{% endblock %}

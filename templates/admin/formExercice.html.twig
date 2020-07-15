@@ -1,0 +1,26 @@
+
+{% extends "base.html.twig" %}
+
+{% form_theme formExercice 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h1>Ajout d'un exercice</h1>
+
+    {{ form_start(formExercice) }}
+
+    {{ form_row(formExercice.titre, {'attr': {'placeholder': "Titre de l'exercice"}}) }}
+    {{ form_row(formExercice.chapitre) }}
+    {{ form_row(formExercice.enonce, {'attr': {'placeholder': "Enoncé de l'exercice"}}) }}
+    {{ form_row(formExercice.solution, {'attr': {'placeholder': "Solution de l'exercice"}}) }}
+
+    <button type="submit" class="btn btn-success">
+        {% if modeModif %}
+            Enregister les modifications
+        {% else %}
+            Ajouter l'exercice
+        {% endif %}
+    </button>
+
+    {{ form_end(formExercice) }}
+
+{% endblock %}

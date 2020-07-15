@@ -1,0 +1,45 @@
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h3>Les exercices</h3>
+
+    <section class="exercices">
+
+        {% set i = 1 %}
+
+        {% for exo in exercices %}
+
+            {% if exo.chapitre.matiere.niveau.id == niv.id %}
+            
+                <div class="col">
+                    <h6 style="font-weight: bold;">{{ exo.titre }}</h6>
+                    <div class="enonce">
+                        {{ exo.enonce | raw }}
+                    </div>
+
+                    {#<a href="{{ path('solution', {'id': exo.id}) }}" class="btn btn-success">voir la solution</a>#}
+
+                    <div class="sol">
+                        <div class="btn btn-primary" style="display: flex; justify-content: flex-start;">
+                            <p>solution</p>
+                            <i class="material-icons">chevron_right</i>
+                        </div>
+                    </div>
+
+                    <div class="solution" style="display: none;">
+                        {{ exo.solution | raw }}
+                    </div>
+
+                </div>
+            {% endif %}
+            
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('javascript/exercice.js') }}"></script>
+{% endblock %}
