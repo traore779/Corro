@@ -1,0 +1,62 @@
+body {
+    font-size: 1em;
+    font-family: 'Times New Roman', serif;
+    background-color: lightgray;
+}
+
+.matter-name {
+    font-size: 1.6em; font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #bf3832;
+    margin: 0.6em 0em;
+}
+
+.chapiter{
+    margin-top: 0.2em;
+    margin-bottom: 1.7em;
+}
+
+.chap-link {
+    color: #000; font-weight: 600px; font-size: 1.1em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.chap-link:hover {
+    text-decoration: none; color: #003a3c; font-weight: bolder;
+}
+
+.list-group {
+    display: none;
+    border-color: #003a3c;
+    border-radius: 0.2em;
+}
+
+.list-group-item {
+    border: 0.15em solid #003a3c;
+    color: black;
+    font-size: 1.1em;
+    background-color: #fff;
+}
+
+.list-group-item:hover {
+    background-color: #fcc9c6;
+    color: #003a3c;
+}
+
+::-webkit-scrollbar {
+    background-color: lightblue;
+    width: 10px;
+    height: 5px;
+    /*border-radius: 15px;*/
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(45, 45, 45, 0.85);
+    /*border-radius: 15px;*/
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(58, 30, 17);
+    /*border-radius: 15px;*/
+}

@@ -8,6 +8,7 @@ use App\Entity\Exercice;
 use App\Entity\Niveau;
 use App\Entity\Matiere;
 use App\Entity\Chapitre;
+use App\Entity\Classe;
 
 class ExercicesFixtures extends Fixture
 {
@@ -18,42 +19,37 @@ class ExercicesFixtures extends Fixture
         for($i=1; $i<=2; $i++)
         {
             $niveau = new Niveau();
-            $niveau->setNom($faker->sentence());
+            $niveau->setNom("Niveau $i");
 
             $manager->persist($niveau);
 
-            for($j=1; $j<=mt_rand(4, 12); $j++)
-            {
-                $mat = new Matiere();
-                $mat->setNom($faker->sentence())
+            for ($l=0; $l <= mt_rand(3, 4) ; $l++)
+            { 
+                $classe = new Classe();
+                $classe->setNom("Classe $l")
                     ->setNiveau($niveau);
 
-                $manager->persist($mat);
-    
-                for($k=1; $k<=mt_rand(4, 9); $k++)
+                $manager->persist($classe);
+
+                for($j=1; $j<=mt_rand(4, 12); $j++)
                 {
-                    $chap = new Chapitre();
-                    $chap->setNom($faker->sentence())
-                        ->setMatiere($mat);
+                    $mat = new Matiere();
+                    $mat->setNom($faker->sentence())
+                        ->setClasse($classe);
 
-                    $manager->persist($chap);
-
-                    for($n=1; $n<=mt_rand(9, 17); $n++)
+                    $manager->persist($mat);
+        
+                    for($k=1; $k<=mt_rand(4, 9); $k++)
                     {
-                        $exo = new Exercice();
+                        $chap = new Chapitre();
+                        $chap->setNom($faker->sentence())
+                            ->setMatiere($mat);
 
-                        $enonce = '<p>' . join($faker->paragraphs(3), '</p><p>') . '</p>';
-                        $solution = '<p>' . join($faker->paragraphs(3), '</p><p>') . '</p>';
-
-                        $exo->setTitre($faker->sentence())
-                            ->setEnonce($enonce)
-                            ->setSolution($solution)
-                            ->setChapitre($chap);
-            
-                        $manager->persist($exo);
-                    } 
-                }            
+                        $manager->persist($chap);
+                    }            
+                }
             }
+
         }
 
         $manager->flush();

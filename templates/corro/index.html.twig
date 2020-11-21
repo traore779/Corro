@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CorroController!{% endblock %}
+{% block title %}Exercices corrigés{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/frame.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {% if classe.id is defined %}
+        <div class="iframe-class">
+            <iframe id="menu" src="{{ path('menu', {'id': classe.id}) }}" frameborder="0" width="26%" height="100%"  name="menu"></iframe>
+            <iframe id="exercices" src="{{ path('exo_ac', {'id': classe.id}) }}" frameborder="0" width="74%" height="100%" name="exercices"></iframe>
+        </div>
+    {% endif %}
+{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Hish/Desktop/Corro/src/Controller/CorroController.php'|file_link(0) }}">src/Controller/CorroController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Hish/Desktop/Corro/templates/corro/index.html.twig'|file_link(0) }}">templates/corro/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block javascripts %}
+    {#<script>
+        window.onload = function() {
+            var taille = $(window).height();
+            taille = taille - $('#navbar').height();
+            $('#menu').css('height', taille);
+            //alert($('#menu').height());
+        };
+    </script>#}
 {% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ForumController{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/forum/response.css') }}">
+{% endblock %}
+
+{% block body %}
+    <style></style>
+    <div class="container container-fluid" style="font-family: 'Times New Roman'; font-size: 1.1em;">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h3 class="title"><strong>{{ discussion.titre }}</strong></h3>
+                    <p class="question">{{ discussion.question }}</p>
+                    {% if discussion.image != null %}
+                        <iframe src="{{ asset('uploads/imagesPosts/' ~ discussion.image) }}" width="80%" height="400px"></iframe>
+                    {% endif %}
+                    <p class="creator username">{{ discussion.createur.username }}</p>
+                            
+                    <div class="text-center" style="margin-left: auto; margin-right: auto; width:90px; margin-top: 1em;">
+                        <button class="btn btn-primary"><a href="#comment">Repondre</a></button>
+                    </div>
+                    <hr>
+                </div>
+
+                <div>
+                    <h5 class="comments">Commentaires</h5>
+                    {% for message in discussion.messages %}
+                        <div class="card" style="border: 0px;">
+                            <div class="card-body">
+                                <p class="sender username">{{ message.sender.username }}</p>
+                                <p>{{ message.contenu }}</p>
+                                {% if message.image != null %}
+                                    <iframe src="{{ asset('uploads/images/' ~ message.image) }}" width="70%" height="350px" frameborder="1"></iframe>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div style="margin-top: 2em; margin-bottom:2em;" id="comment">
+                    <h5 style="font-weight: bold;">Votre reponse</h5>
+                            
+                    {{ form_start(formMessage) }}
+                        {{ form_row(formMessage.image) }}
+                        {{ form_row(formMessage.contenu) }}
+                        <div class="text-center">
+                            <input type="submit" name="" value="Envoyer" class="btn btn-primary">
+                        </div>
+
+                    {{ form_end(formMessage) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

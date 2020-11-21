@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <link rel="stylesheet" href="{{ asset('style/menu2.css') }}">
+    </head>
+
+    <body>
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h5>Ajout d'une novelle matière</h5>
+                    {{ form_start(formMatiere) }}
+                        {{ form_row(formMatiere.classe) }}
+                        {{ form_row(formMatiere.nom) }}
+                        {#{{ form_row(formMatiere.chapitres) }}#}
+
+                        <h5>Chapitres</h5>
+                        <button type="button" class="add_chap_link">Ajouter un chapitre</button>
+                        <ul class="chapitres" data-prototype="{{ form_widget(formMatiere.chapitres.vars.prototype)|e('html_attr') }}">
+                            {#{% for chap in formMatiere.chapitres %}
+                                <li>{{ form_row(chap.nom) }}</li>
+
+                                <ul class="exercices" data-prototype="{{ form_widget(formMatiere.chapitres.vars.prototype)|e('html_attr') }}">
+
+                                <div class="">
+                                    <label for="files">Ajouter des exercices au chapitre</label>
+                                    <input type="file" name="files" id="files">
+                                </div>
+                            {% endfor %}#}
+                        </ul>
+
+                        <input type="submit" class="btn btn-primary" value="Soumettre">
+
+                    {{ form_end(formMatiere) }}
+                </div>
+            </div>
+        </div>
+
+
+        <script src="{{ asset('javascript/formMatiere1.js') }}"></script>
+
+    </body>
+</html>

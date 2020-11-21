@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <link rel="stylesheet" href="{{ asset('style/corro/menu2.css') }}">
+    </head>
+
+    <body>
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h3 class="classe title">{{ classe.nom }}</h3>
+                    {% for mat in matieres %}
+                        <p class="matiere"><a class="matiere-link" href="{{ path('exercice', {'id': mat.id}) }}" target="exercices">{{ mat.nom }}</a></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $('.matiere-link').on('mouseover', function(){
+                $(this).parent().css('background-color', 'gray');
+            })
+            .on('mouseleave', function(){
+                $(this).parent().css('background-color', 'lightgray');
+            });
+        </script>      
+    </body>
+</html>

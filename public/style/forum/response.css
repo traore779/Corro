@@ -1,0 +1,16 @@
+.input-field span.error {
+    color: #e04447;
+    font-size: 12px;
+}
+
+.container {
+    background-color: white;
+    font-family: 'Times New Roman', Georgia, Times, serif;
+    padding-bottom: 1.5em;
+    padding-left: 8em;   padding-right: 8em;
+}
+
+.comments{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+

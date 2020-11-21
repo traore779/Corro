@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ForumController{% endblock %}
+
+{% block body %}
+    <div class="container container-fluid" style="background-color: white; min-height: 76vh;">
+        {{ form_start(formDiscussion) }}
+
+            {{ form_row(formDiscussion.titre) }}
+            {{ form_row(formDiscussion.image) }}
+
+            {#{{ dump(formDiscussion.vars.value) }}
+            {{ dump(formDiscussion.image.vars.attr) }}#}
+            
+            {{ form_row(formDiscussion.question) }}
+
+            <div style="text-align: center;">
+		        <input type="submit" name="" value="Soumettre" class="btn btn-primary">
+        	</div>
+        {{ form_end(formDiscussion) }}
+    </div>    
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        /*$("#discussion_image").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            "{{ formDiscussion.image.vars.attr.placeholder }}" = fileName;
+            //$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            //$(this).attr("placeholder", "select");
+        });
+
+        /*$(document).ready(function(){
+            alert("{{ formDiscussion.image.vars.attr.placeholder }}");
+        });*/
+    </script>
+{% endblock %}

@@ -1,0 +1,28 @@
+body {
+    /*background-color: lightgray;*/
+    overflow-y: scroll;
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: lightgray;
+}
+
+.classe{
+    margin-top: 0.6em;
+    font-size: 1.3rem; font-style: italic; font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #bf3832;
+    text-align: center;
+}
+
+.matiere {
+    margin: 0.4em 0em;
+}
+
+.matiere-link {
+    color: black;
+}
+
+.matiere-link:hover {
+    text-decoration: none;
+    color: black;
+}

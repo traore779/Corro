@@ -25,13 +25,13 @@ class Niveau
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Matiere::class, mappedBy="niveau")
+     * @ORM\OneToMany(targetEntity=Classe::class, mappedBy="niveau", orphanRemoval=true)
      */
-    private $matieres;
+    private $classes;
 
     public function __construct()
     {
-        $this->matieres = new ArrayCollection();
+        $this->classes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -52,30 +52,30 @@ class Niveau
     }
 
     /**
-     * @return Collection|Matiere[]
+     * @return Collection|Classe[]
      */
-    public function getMatieres(): Collection
+    public function getClasses(): Collection
     {
-        return $this->matieres;
+        return $this->classes;
     }
 
-    public function addMatiere(Matiere $matiere): self
+    public function addClass(Classe $class): self
     {
-        if (!$this->matieres->contains($matiere)) {
-            $this->matieres[] = $matiere;
-            $matiere->setNiveau($this);
+        if (!$this->classes->contains($class)) {
+            $this->classes[] = $class;
+            $class->setNiveau($this);
         }
 
         return $this;
     }
 
-    public function removeMatiere(Matiere $matiere): self
+    public function removeClass(Classe $class): self
     {
-        if ($this->matieres->contains($matiere)) {
-            $this->matieres->removeElement($matiere);
+        if ($this->classes->contains($class)) {
+            $this->classes->removeElement($class);
             // set the owning side to null (unless already changed)
-            if ($matiere->getNiveau() === $this) {
-                $matiere->setNiveau(null);
+            if ($class->getNiveau() === $this) {
+                $class->setNiveau(null);
             }
         }
 

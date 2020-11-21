@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <link rel="stylesheet" href="{{ asset('style/menu2.css') }}">
+    </head>
+
+    <body style="overflow-y: auto;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col" style="margin-top: 1em;">
+                    <h3>Gestion des exercices</h3>
+                    <p><a href="{{ path('new_matiere') }}" target="showFrame">Nouvelle matière</a></p>
+                    <p><a href="{{ path('new_matiere') }}" target="showFrame">Ajouter un chapitre à une matière</a></p>
+                    <p><a href="{{ path('admin_ajout') }}" target="showFrame">Ajouter un fichier d'exercice</a></p>
+                    <p><a href="{{ path('admin_liste') }}" target="showFrame">Liste des exercices</a></p>
+                    <p><a href="#" target="showFrame">Rechercher un exercice</a></p>
+                </div>
+            </div>    
+        </div>
+
+    </body>
+</html>

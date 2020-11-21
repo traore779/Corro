@@ -25,7 +25,7 @@ class Chapitre
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Exercice::class, mappedBy="chapitre")
+     * @ORM\OneToMany(targetEntity=Exercice::class, mappedBy="chapitre", cascade={"persist"})
      */
     private $exercices;
 

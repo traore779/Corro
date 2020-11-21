@@ -1,0 +1,14 @@
+body {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+.iframe-class {
+    display: flex;
+    height: 89.3vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

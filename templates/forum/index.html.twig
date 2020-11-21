@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ForumController{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/forum/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container container-fluid">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h3 id="welcome" class="">Bienvenue au niveau du forum</h3>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="bolder-weight-text" style="font-size: 1.1em;">Forum : Vous n'avez trouvé la réponse à votre exercice.</h6>
+                </div>
+                <div class="col-3">
+                    <a id="a_question" href="{{ path('new_discussion') }}" id="create_new_discussion">Posez là ici</a>
+                    <br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6 style="font-weight: bolder; font-size: x-large; color: #bf3832;">Liste des discussions</h6>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 2em;">
+                {% for discussion in discussions %}
+                
+                    <div class="col-6">
+                        <div class="card" style="height: 200px; margin-bottom:1.2em;">
+                            <div class="card-header">
+                                <h5 class="forum-title text-center"><a href="{{ path('responses', {'id': discussion.id}) }}" class="forum-title-link {#stretched-link#}">{{ discussion.titre }}</a></h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-text" style="">{{ discussion.question }}</div>
+                                <p class="username text-primary" style="color: #bf3832;">{{ discussion.createur.username }}</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    {{ knp_pagination_render(discussions) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

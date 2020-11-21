@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <link rel="stylesheet" href="{{ asset('style/liste.css') }}">
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h3>Liste des exercices</h3>
+
+                    <table>
+                        <tr class="entete">
+                            <th>Titre</th>
+                            <th>Chapitre</th>
+                            <th>Action</th>
+                        </tr>
+                    
+                        {% for exo in exercices %}
+                            <tr>
+                                <td>{{ exo.fichier }}</td>
+                                <td>{{ exo.chapitre.nom }}</td>
+                                <td><a href="{{ path('admin_modif', {'id': exo.id}) }}">Modifier </a> - <a href="#"> Supprimer</a></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

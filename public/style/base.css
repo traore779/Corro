@@ -1,0 +1,48 @@
+.nav-link:hover {
+    display: block;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: lightgray;
+    text-align: justify;
+}
+
+.navbar, .dropdown-menu {
+    background-color: #003a3c;
+}
+
+.dropdown-item:hover {
+    background-color: #bf3832;
+}
+
+.nav-item:hover a {
+    color: #fff;
+}
+
+.navbar a {
+    color: #fcc9c6; font-weight: bold; font-style: italic;
+}
+
+/*.btn, .btn a{
+    background-color: #003a3c;
+    color: #fcc9c6;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.1em;
+    font-weight: bolder;
+}*/
+
+.title{
+    margin-top: 0.6em;
+    font-size: 1.3rem; font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #bf3832;
+}
+
+.username {
+    color: #000;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+}

@@ -1,12 +1,10 @@
-var $sol = $('.sol');
+var $chap = $('.chapiter-name');
 
-$sol.on('click', function() {
+$chap.on('click', function() {
     $(this).next().toggle();
-    var $icon = $('i', this);
-
-    if ($icon.text() === 'chevron_right') {
-        $icon.text('expand_more');
-    } else {
-        $icon.text('chevron_right');
-    }
 });
+
+/*window.on('load', function() {
+    var $w = $('.btn p').width() + $('.btn i').width();
+    $('btn').css('width', $w);
+});*/

@@ -19,24 +19,9 @@ class Exercice
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
-     * @Assert\Length(min=6, max=255, minMessage="Six caractères au minimum", maxMessage="255 caractères au maximum")
+     * @ORM\Column(type="string", length=255)
      */
-    private $titre;
-
-    /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Ce champ ne doit pas etre vide")
-     * @Assert\Length(min=12, minMessage="Douze caractères au minimum")
-     */
-    private $enonce;
-
-    /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Ce champ ne doit pas etre vide")
-     * @Assert\Length(min=12, minMessage="Douze caractères au minimum")
-     */
-    private $solution;
+    private $fichier;
 
     /**
      * @ORM\ManyToOne(targetEntity=Chapitre::class, inversedBy="exercices")
@@ -49,42 +34,6 @@ class Exercice
         return $this->id;
     }
 
-    public function getTitre(): ?string
-    {
-        return $this->titre;
-    }
-
-    public function setTitre(?string $titre): self
-    {
-        $this->titre = $titre;
-
-        return $this;
-    }
-
-    public function getEnonce(): ?string
-    {
-        return $this->enonce;
-    }
-
-    public function setEnonce(string $enonce): self
-    {
-        $this->enonce = $enonce;
-
-        return $this;
-    }
-
-    public function getSolution(): ?string
-    {
-        return $this->solution;
-    }
-
-    public function setSolution(string $solution): self
-    {
-        $this->solution = $solution;
-
-        return $this;
-    }
-
     public function getChapitre(): ?Chapitre
     {
         return $this->chapitre;
@@ -93,6 +42,18 @@ class Exercice
     public function setChapitre(?Chapitre $chapitre): self
     {
         $this->chapitre = $chapitre;
+
+        return $this;
+    }
+
+    public function getFichier(): ?string
+    {
+        return $this->fichier;
+    }
+
+    public function setFichier(string $fichier): self
+    {
+        $this->fichier = $fichier;
 
         return $this;
     }

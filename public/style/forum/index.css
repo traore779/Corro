@@ -1,0 +1,37 @@
+/*.card-text{
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow: overlay;
+}*/
+
+.container { 
+    font-family: "Times New Roman";
+}
+
+#welcome {
+    margin-top: 0.5em;
+}
+
+.card-header {
+    background-color: #003a3c; height: 37px;
+}
+
+.forum-title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+
+.forum-title-link {
+    color: #fff; font-weight: bolder;
+}
+
+.forum-title-link:hover {
+    text-decoration: none;
+    color: #fcc9c6;
+    font-weight: bolder;
+}
+
+.card-text{
+    overflow: hidden; text-align: justify; text-overflow: ellipsis; height: 89%; width: 100%;
+}
+

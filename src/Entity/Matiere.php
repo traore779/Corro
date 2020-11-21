@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\MatiereRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MatiereRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=MatiereRepository::class)
@@ -25,15 +25,15 @@ class Matiere
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Chapitre::class, mappedBy="matiere")
+     * @ORM\OneToMany(targetEntity=Chapitre::class, mappedBy="matiere", cascade={"persist"})
      */
     private $chapitres;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Niveau::class, inversedBy="matieres")
+     * @ORM\ManyToOne(targetEntity=Classe::class, inversedBy="matieres")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $niveau;
+    private $classe;
 
     public function __construct()
     {
@@ -88,14 +88,14 @@ class Matiere
         return $this;
     }
 
-    public function getNiveau(): ?Niveau
+    public function getClasse(): ?Classe
     {
-        return $this->niveau;
+        return $this->classe;
     }
 
-    public function setNiveau(?Niveau $niveau): self
+    public function setClasse(?Classe $classe): self
     {
-        $this->niveau = $niveau;
+        $this->classe = $classe;
 
         return $this;
     }
